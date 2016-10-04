@@ -1,0 +1,12 @@
+FROM microsoft/windowsservercore
+
+SHELL ["powershell"]
+
+RUN Add-WindowsFeature Web-Server
+
+ADD App c:/inetpub/wwwroot/
+ADD ServiceMonitor.exe /ServiceMonitor.exe
+
+EXPOSE 80
+
+ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]

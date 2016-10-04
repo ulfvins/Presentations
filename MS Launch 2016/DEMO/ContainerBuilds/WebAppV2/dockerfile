@@ -1,0 +1,5 @@
+FROM microsoft/iis
+
+ADD App c:/inetpub/wwwroot/
+
+EXPOSE 80
