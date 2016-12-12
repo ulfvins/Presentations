@@ -85,7 +85,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "nicName",
+            "name": "[variables('nicName')]",
             "apiVersion": "2016-03-30",
             "location": "[resourceGroup().location]",
             "tags": {
