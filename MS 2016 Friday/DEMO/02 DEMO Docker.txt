@@ -1,0 +1,59 @@
+Function Set-ContainerPortProxy { netsh interface portproxy add v4tov4 listenaddress=127.0.0.1 listenport=80 connectaddress=(Get-NetNatStaticMapping | select -ExpandProperty InternalIpAddress) connectport=80 }
+#NOTE: docker run [OPTIONS] IMAGE [COMMAND]
+
+#list version
+docker version
+
+#list commands
+docker help
+
+#test sample image from MS (Nano and .net Core)
+docker run microsoft/sample-dotnet
+
+#list images
+docker images
+
+#Run fill stack windows
+docker run -it microsoft/windowsservercore cmd
+
+#Run IIS runtime
+docker run -it -p 80:80 microsoft/iis cmd
+# Change Files:
+# del C:\inetpub\wwwroot\iisstart.htm
+# echo "Container Rocks" > C:\inetpub\wwwroot\index.html
+
+#Stop, start again... show default IIS!
+
+# Look at run history:
+docker ps -a
+
+#Saves a Image...
+docker commit "NAME OF CONTAINER" modified-iis 
+
+#Mount data
+docker run -it -v C:\ContainerData:c:\Data -p 80:80 microsoft/iis cmd
+
+# RUN ON ME3
+# Build the image V1:
+docker build -t app-v1 c:\ContainerBuilds\WebAppV1\
+
+# Run custom image:
+docker run -d -p 80:80 app-v1
+Set-ContainerPortProxy 
+
+# Start IE with Ctrl + Shit + P
+
+docker ps
+docker stop "<containerid>"
+
+# Build the image V2:
+docker build -t app-v2 c:\ContainerBuilds\WebAppV2\
+
+# Run custom image:
+docker run -d -p 80:80 app-v2
+Set-ContainerPortProxy 
+
+#Ooops, rollback...
+docker ps
+docker stop "<containerid>"
+docker run -d -p 80:80 app-v1
