@@ -98,5 +98,6 @@ Get-VMSwitch
     https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server
     https://blog.sixeyed.com/1-2-3-iis-running-in-nano-server-in-docker-on-windows-server-2016
     https://msdn.microsoft.com/en-us/virtualization/windowscontainers/deployment/deployment_nano
+    https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking
 
 #>
