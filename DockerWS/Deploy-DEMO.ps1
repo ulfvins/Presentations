@@ -28,7 +28,7 @@ $VMdns      = "adldockerdemo"
 New-AzureRmResourceGroup -Name $RG  -Location "North Europe" -Verbose
 $Parameters = @{
     ResourceGroupName = $RG
-    TemplateUri       = "https://raw.githubusercontent.com/ulfvins/Presentations/master/MS%20Launch%202016/DEMO/ARMTemplate/dockerhost.json"
+    TemplateUri       = "https://raw.githubusercontent.com/ulfvins/Presentations/master/DockerWS/ARMTemplate/dockerhost.json"
     TemplateParameterObject = @{
         vmName                                    = $VMName  
         adminPassword                             = $VMPass
