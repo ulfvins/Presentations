@@ -22,13 +22,13 @@ Select-AzureRmSubscription -SubscriptionId 692529f0-a0ae-4fb6-aa9e-a16df69f87cb
 
 $RG         = "RG-DockerDemo"
 $VMName     = "DockerHost"
-$VMPass     = ""
+$VMPass     = "NotASecretP@ssw0rd911!"
 $VMdns      = "adldockerdemo"
 
 New-AzureRmResourceGroup -Name $RG  -Location "North Europe" -Verbose
 $Parameters = @{
     ResourceGroupName = $RG
-    TemplateUri       = "https://raw.githubusercontent.com/ulfvins/Presentations/master/DockerWS/ARMTemplate/dockerhost.json"
+    TemplateUri       = "https://raw.githubusercontent.com/ulfvins/Presentations/master/MS%20Launch%202016/DEMO/ARMTemplate/dockerhost.json"
     TemplateParameterObject = @{
         vmName                                    = $VMName  
         adminPassword                             = $VMPass
